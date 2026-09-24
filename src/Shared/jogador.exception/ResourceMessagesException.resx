@@ -17,4 +17,17 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="VALIDATION_NOME_REQUIRED" xml:space="preserve">
+		<value>O nome não pode ser vazio</value>
+	</data>
+	<data name="VALIDATION_EMAIL_REQUIRED" xml:space="preserve">
+		<value>O email não pode ser vazio</value>
+	</data>
+	<data name="VALIDATION_SENHA_REQUIRED" xml:space="preserve">
+		<value>A senha não pode ser vazio</value>
+	</data>
+	<data name="VALIDATION_EMAIL_INVALID" xml:space="preserve">
+		<value>O email é inválido</value>
+	</data>
+	
 </root>

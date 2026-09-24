@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="ResourceMessagesException.resx">
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>jogador.exception</StronglyTypedNamespace>
+      <StronglyTypedClassName>ResourceMessagesException</StronglyTypedClassName>
+      <StronglyTypedFileName>$(IntermediateOutputPath)ResourceMessagesException.Designer.cs</StronglyTypedFileName>
+      <PublicClass>true</PublicClass>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
