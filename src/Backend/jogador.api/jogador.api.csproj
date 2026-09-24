@@ -11,4 +11,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\jogador.application\jogador.application.csproj" />
+    <ProjectReference Include="..\jogador.infrastructure\jogador.infrastructure.csproj" />
+    <ProjectReference Include="..\..\Shared\jogador.communication\jogador.communication.csproj" />
+    <ProjectReference Include="..\..\Shared\jogador.exception\jogador.exception.csproj" />
+  </ItemGroup>
+
 </Project>

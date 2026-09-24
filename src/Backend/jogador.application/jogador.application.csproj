@@ -1,5 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\jogador.domain\jogador.domain.csproj" />
+    <ProjectReference Include="..\..\Shared\jogador.communication\jogador.communication.csproj" />
+    <ProjectReference Include="..\..\Shared\jogador.exception\jogador.exception.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
