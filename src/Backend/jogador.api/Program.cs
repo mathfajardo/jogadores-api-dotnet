@@ -1,3 +1,4 @@
+using jogador.api.Filters;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
@@ -24,6 +25,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
         new AcceptLanguageHeaderRequestCultureProvider()
     };
 });
+
+builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 
 var app = builder.Build();
 
