@@ -9,11 +9,8 @@ namespace jogador.api.Controllers;
 public class UsuarioController : ControllerBase
 {
     [HttpPost]
-
-    public IActionResult Register([FromBody] RequestRegistrarUsuarioJson request)
+    public IActionResult Register([FromBody] RequestRegistrarUsuarioJson request, [FromServices] IRegistrarUsuarioContaUseCase useCase)
     {
-        var useCase = new RegistrarUsuarioContaUseCase();
-
         useCase.Execute(request);
         
         return Created();

@@ -1,4 +1,6 @@
 using jogador.api.Filters;
+using jogador.application;
+using jogador.infrastructure;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
@@ -10,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddInfrastructure();
+builder.Services.AddApplication();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
