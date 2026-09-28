@@ -9,9 +9,9 @@ namespace jogador.api.Controllers;
 public class UsuarioController : ControllerBase
 {
     [HttpPost]
-    public IActionResult Register([FromBody] RequestRegistrarUsuarioJson request, [FromServices] IRegistrarUsuarioContaUseCase useCase)
+    public async Task<IActionResult> Register([FromBody] RequestRegistrarUsuarioJson request, [FromServices] IRegistrarUsuarioContaUseCase useCase)
     {
-        useCase.Execute(request);
+        await useCase.Execute(request);
         
         return Created();
     }
