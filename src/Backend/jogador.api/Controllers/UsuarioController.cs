@@ -1,5 +1,6 @@
 using jogador.application.UseCases.User.Register;
 using jogador.communication.Requests;
+using jogador.communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace jogador.api.Controllers;
@@ -9,10 +10,12 @@ namespace jogador.api.Controllers;
 public class UsuarioController : ControllerBase
 {
     [HttpPost]
+    [ProducesResponseType(typeof(ResponseRegisteredUsuarioJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromBody] RequestRegistrarUsuarioJson request, [FromServices] IRegistrarUsuarioContaUseCase useCase)
     {
-        await useCase.Execute(request);
+        var result = await useCase.Execute(request);
         
-        return Created();
+        return Created(string.Empty, result);
     }
 }
