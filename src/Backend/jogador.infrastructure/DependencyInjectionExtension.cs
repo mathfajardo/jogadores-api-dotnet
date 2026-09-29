@@ -19,6 +19,7 @@ public static class DependencyInjectionExtension
             services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
 
             services.AddScoped<IUsuarioWriteOnlyRepository, UsuarioRepository>();
+            services.AddScoped<IUsuarioReadOnlyRepository, UsuarioRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
