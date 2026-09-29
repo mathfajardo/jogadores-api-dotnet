@@ -2,6 +2,7 @@ using jogador.api.Converters;
 using jogador.api.Filters;
 using jogador.application;
 using jogador.infrastructure;
+using jogador.infrastructure.Migrations;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
@@ -57,4 +58,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+await ExecuteMigrations();
+
 app.Run();
+
+async Task ExecuteMigrations()
+{
+    await using var scope = app.Services.CreateAsyncScope();
+
+    DatabaseMigration.ExecuteMigrations(scope.ServiceProvider);
+}
