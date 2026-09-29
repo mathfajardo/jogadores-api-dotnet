@@ -1,3 +1,5 @@
+using System.Reflection;
+using FluentMigrator.Runner;
 using jogador.domain.Repositories;
 using jogador.domain.Repositories.Usuario;
 using jogador.domain.Security.PasswordHashing;
@@ -28,6 +30,13 @@ public static class DependencyInjectionExtension
                 var connectionString = configuration.GetConnectionString("DbConnection");
 
                 config.UseNpgsql(connectionString);
+            });
+
+            services.AddFluentMigratorCore().ConfigureRunner(config =>
+            {
+                var connectionString = configuration.GetConnectionString("DbConnection");
+
+                config.AddPostgres().WithGlobalConnectionString(connectionString).ScanIn(Assembly.Load("jogador.infrastructure")).For.All();
             });
         }
     }
