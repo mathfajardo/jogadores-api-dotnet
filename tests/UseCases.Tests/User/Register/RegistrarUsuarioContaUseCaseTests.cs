@@ -2,6 +2,7 @@
 using CommonTestUtilities.Requests;
 using CommonTestUtilities.Security;
 using jogador.application.UseCases.User.Register;
+using Shouldly;
 
 namespace UseCases.Tests.User.Register;
 
@@ -13,6 +14,14 @@ public class RegistrarUsuarioContaUseCaseTests
         var request = RequestRegistrarUsuarioJsonBuilder.Build();
 
         var useCase = CreateUseCase();
+        
+        var result = await useCase.Execute(request);
+
+        result.ShouldNotBeNull();
+        result.Tokens.ShouldNotBeNull();
+        result.Nome.ShouldBe(request.Nome);
+        result.Tokens.AccessToken.ShouldBeNullOrEmpty();
+        result.Tokens.RefreshToken.ShouldBeNullOrEmpty();
     }
 
     private RegistrarUsuarioContaUseCase CreateUseCase()
