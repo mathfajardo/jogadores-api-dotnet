@@ -1,11 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Backend\jogador.domain\jogador.domain.csproj" />
     <ProjectReference Include="..\..\src\Shared\jogador.communication\jogador.communication.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="35.6.5" />
+    <PackageReference Include="Moq" Version="4.21.0" />
   </ItemGroup>
 
   <PropertyGroup>
